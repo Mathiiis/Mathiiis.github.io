@@ -17,11 +17,27 @@
     font-family: "Poppins", sans-serif;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-size: 16px;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -45,7 +61,7 @@ main {
 footer {
     border-top: 2px dashed var(--davys-gray);
     padding: 20px 100px;
-    height: 50px;
+    height: 80px;
     display: flex;
     width: 100%;
     background: white;
@@ -53,7 +69,7 @@ footer {
     align-items: center;
 }
 
-header {
+.header {
     top: 0;
     left: 0;
     width: 100%;
@@ -151,6 +167,16 @@ small {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 40px;
     margin: 0 350px;
+    fill: black;
+
+}
+
+.bi-github:hover {
+    fill: #6E2687;
+}
+
+.bi-linkedin:hover {
+    fill: #0A66C2;
 }
