@@ -40,24 +40,6 @@ time, mark, audio, video {
     font-family: "Poppins", sans-serif;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: white;
-    background-size: cover;
-    background-position: center;
-}
-
-div {
-    padding: 20px;
-    margin: 20px;
-}
-
-main {
-    flex: auto;
-}
-
 footer {
     border-top: 2px dashed var(--davys-gray);
     padding: 20px 100px;
