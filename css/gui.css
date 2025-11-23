@@ -1,0 +1,556 @@
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+a {
+    color: #3498DB;
+}
+
+.dg.ac {
+    z-index: 999 !important;
+}
+
+/* ------------------------- */
+/* Temporary Control Styling */
+/* ------------------------- */
+
+#controls a {
+    font-weight: bold;
+}
+
+#controls > .header {
+    font-size: 14pt;
+    text-align: center;
+}
+
+#img {
+    max-width: 300px;
+}
+
+/* ----------- */
+/* GUI Styling */
+/* ----------- */
+
+#gui-top, #gui-bottom {
+    /*
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    padding: 12px 18px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    color: #fff;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    z-index: 8;
+    min-height: 72px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    
+    display: none;
+}
+
+#gui-top {
+    top: 70px;
+}
+
+#gui-bottom {
+    bottom: 30px;
+    */
+}
+
+#gui-bottom {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 70px; /* ajuste selon la hauteur de now-playing/countdown */
+    display: flex;
+    justify-content: center;
+    z-index: 8;
+    pointer-events: none; /* optionnel : pour laisser passer les clics */
+}
+
+#audio-player {
+    pointer-events: auto; /* pour que le player reste cliquable */
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 12px 16px;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.7);
+    border-radius: 16px;
+    color: #fff;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    z-index: 8;
+    min-height: 72px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    display: grid;
+    grid-template-columns: auto 60px 1fr 180px;
+    grid-template-rows: auto;
+    column-gap: 12px;
+    width: 100%;
+}
+
+#audio-player .main-controls span,
+#audio-player #shuffle,
+#audio-player #previous,
+#audio-player #next,
+#audio-player #about-btn,
+#audio-player #playlist {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+#audio-player #mute {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 10px 27px 8px 8px;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+#audio-player .main-controls span:hover,
+#audio-player #mute:hover,
+#audio-player #shuffle:hover,
+#audio-player #previous:hover,
+#audio-player #next:hover,
+#audio-player #about-btn:hover,
+#audio-player #playlist:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#audio-player .main-controls {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#audio-player progress {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    width: 100%;
+}
+
+#audio-player progress::-webkit-progress-bar {
+    background: transparent;
+}
+
+#audio-player progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #57c4ff, #8f7bff);
+}
+
+#audio-player progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #57c4ff, #8f7bff);
+}
+/*
+#view-database {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+   
+
+#view-database .fa {
+    font-size: 18px;
+}
+
+
+#about-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+*/
+
+#time {
+    width: 60px;
+    text-align: center;
+}
+
+#progressbar {
+    width: 100%;
+}
+
+#volume-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+/* Chrome Only, Edge has black/purple player though */
+audio::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0);
+}
+
+.overlay-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background: rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    display: none;
+}
+
+.overlay-window {
+    height: calc(100% - 300px);
+    padding: 0px 50px;
+    pointer-events: none;
+}
+
+#gui-full-holder {
+    height: calc(100% - 300px);
+}
+
+#controls {
+    line-height: 0.8em;
+    font-size: 10pt;
+}
+
+.overlay-pane {
+    z-index: 4;
+    position: fixed;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #DBDBDB;
+    max-width: 100%;
+    pointer-events: auto;
+    border-radius: 15px;
+}
+
+.page-control {
+    font-size: 24pt;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+}
+
+#db-prev {
+    left: -38px;
+}
+
+#db-next {
+    right: -38px;
+}
+
+#db-page-info {
+    font-size: 12pt;
+    text-align: center;
+    padding-bottom: 16px;
+}
+
+/* ---------- */
+/* About pane */
+/* ---------- */
+
+.overlay-pane {
+    text-align: center;
+    font-family: "Open Sans", Helvetica, Verdana, sans-serif !important;
+    font-weight: 300;
+    font-size: 16pt;
+}
+
+#about-pane {
+    line-height: 3em;
+}
+
+#welcome-pane, #welcome-noauto-pane {
+    max-width: 400px;
+}
+
+#about-header {
+    font-size: 32pt;
+    margin-bottom: 24px;
+}
+
+#about-hotkeys {
+    line-height: 1.3em;
+}
+
+#welcome-content, #welcome-noauto-content {
+    line-height: 1.5em;
+}
+
+/* ------------ */
+/* GUI Elements */
+/* ------------ */
+
+#audio {
+    display: none;
+}
+
+#song-info {
+    color: white;
+    text-transform: uppercase;
+    /*line-height: 90%;*/
+    text-align: center;
+}
+
+#song-info > div {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+#gui-artist {
+    font-size: 24pt;
+    margin-bottom: 12px;
+    font-weight: 700 !important;
+}
+
+#gui-title {
+    font-size: 15pt;
+    margin-top: 12px;
+}
+
+/*
+#view-database {
+    min-width: 100px;
+    margin-left: 15px;
+}
+*/
+
+#elm-about {
+    min-width: 60px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 12pt;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#upload-button:hover {
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+
+#db-input {
+    margin-bottom: 8px;
+}
+
+.db-edit-input {
+    color: black;
+    display: inline;
+    min-width: 90%;
+}
+
+#db-view td {
+    line-height: 1.5em;
+    padding: 0px 15px;
+}
+
+#db-view td > div {
+    max-height: 50px;
+    overflow: hidden;
+}
+
+.row-art {
+    padding: 0 0 !important;
+    line-height: 0em !important;
+}
+
+.row-title, .row-artist {
+    min-width: 200px;
+}
+
+.db-song-control {
+    white-space: nowrap;
+    font-size: 14pt;
+}
+
+.db-song-control a {
+    color: #E0E1E2 !important;
+}
+
+.boxclose {
+    float: right;
+    margin-top:-26px;
+    margin-right:-30px;
+    cursor:pointer;
+    color: #E0E1E2 !important;
+    font-size: 26px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;       
+}
+
+/* ------------- */
+/* Audio Wrapper */
+/* ------------- */
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-auto {
+    flex: 1 1 auto;
+}
+
+#audio-player {
+    width: 100%;
+    height: 65px;
+    color: white;
+}
+
+.time {
+    font-size: 14px;
+    font-weight: 900;
+    color: white;
+    position: relative;
+    margin-left: 18px;
+    margin-right: 8px;
+}
+
+#progressbar, #volume {
+    height: 18px;
+    min-width: 35px;
+    display: inline-block;
+    border-radius: 0px;
+    border: none;
+    position: relative;
+    margin-left: 2px;
+    margin-right: 10px;
+}
+
+#play, #mute {
+    font-size: 20px;
+    width: 17px;
+}
+
+#mute {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#next, #previous {
+    font-size: 14px;
+}
+
+#play, #next, #previous, #shuffle {
+    padding: 5px;
+    width: auto;
+}
+
+#shuffle {
+    margin-left: 10px;
+    font-size: 12pt;
+}
+
+#previous {
+    margin-left: 15px;
+}
+
+#mute {
+    margin-left: 8px;
+}
+
+#volume {
+    max-width: 110px;
+    margin-right: 15px;
+}
+
+progress {
+    -webkit-appearance: none;
+    color: #3498DB;
+}
+
+progress::-ms-fill {
+    border: none;
+}
+
+progress::-moz-progress-bar {
+    background: #3498DB;
+}
+
+progress::-webkit-progress-value {
+    background: #3498DB;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #FFFFFF;
+}
+
+.interactable {
+    cursor: pointer !important;
+}
+
+.interactable:hover {
+    color: #BABBBC !important;
+    transition: 0.1s;
+}
+
+.interactable.on {
+    color: #3498DB;
+}
+
+.interactable.on:hover, a.interactable:hover {
+    color: #2979AF !important;
+}
+
+button.interactable:hover {
+    color: rgba(0,0,0,.87) !important;
+}
+
+@media screen and (max-width: 550px) {
+    #volume {
+        display: none !important;
+    }
+    #mute {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #time {
+        display: none !important;
+    }
+    #next, #shuffle {
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #previous, #next {
+        display: none !important;
+    }
+    #play {
+        margin-left: 25px;
+    }
+}

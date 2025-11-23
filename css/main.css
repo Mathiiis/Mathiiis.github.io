@@ -1,0 +1,152 @@
+/* ----------------- */
+/* Main Page Styling */
+/* ----------------- */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,700|Open+Sans:300,700");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600");
+
+body {
+    font-family: "Open Sans", Helvetica, Verdana, sans-serif !important;
+    font-weight: 300 !important;
+    margin: 0;
+    background-color: #222 !important;
+}
+
+#ticker {
+    position: fixed;
+    top: 14px;
+    left: -5px;
+    right: -5px;
+    height: 48px;
+    z-index: 7;
+    overflow: hidden;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    /*border-radius: 14px;*/
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    cursor: pointer;
+}
+
+#ticker-track {
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: ticker-scroll 18s linear infinite;
+    padding-left: 100%;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+    letter-spacing: 0.8px;
+}
+
+#ticker-text {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+#elm-about {
+    display: none;
+}
+
+#ticker:hover #ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+    0%   { transform: translate(0, -50%); }
+    100% { transform: translate(-100%, -50%); }
+}
+
+#content {
+    z-index: 2;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+#countdown {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    z-index: 8;
+    cursor: pointer;
+    min-width: 96px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+#now-playing {
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    z-index: 8;
+    min-width: 200px;
+    max-width: none;
+    backdrop-filter: blur(6px);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#now-playing.paused {
+    opacity: 0.6;
+}
+
+#now-playing .label {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+#canvas, #canvas-gl {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+#canvas {
+    z-index: 3;
+}
+
+#canvas-gl {
+    z-index: 2;
+}
+
+.vert-cen {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
