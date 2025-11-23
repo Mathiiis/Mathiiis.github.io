@@ -132,11 +132,11 @@ let Database = new function () {
         }
     }
 
-    this.loadAudioFile = function(file) {
-        return processAudioFile(file);
+    this.loadAudioFile = function(file, autoAdd = false) {
+        return processAudioFile(file, autoAdd);
     }
 
-    let processAudioFile = function(file) {
+    let processAudioFile = function(file, autoAdd = false) {
         if (!file) {
             return;
         }
@@ -189,6 +189,19 @@ let Database = new function () {
         let promise = Nodes.playSongFromUrl(url);
 
         handleView(true);
+
+        if (autoAdd) {
+            let tryAdd = function() {
+                elmAudio.removeEventListener("loadedmetadata", tryAdd);
+                addSong();
+            };
+
+            if (!isNaN(elmAudio.duration) && elmAudio.duration > 0) {
+                addSong();
+            } else {
+                elmAudio.addEventListener("loadedmetadata", tryAdd);
+            }
+        }
 
         return promise;
     }
@@ -284,6 +297,7 @@ let Database = new function () {
 
         db.id3.where("id").equals(i).each(result => {
             let subPromise = Nodes.playSongFromUrl(URL.createObjectURL(result.audio));
+            GuiWrapper.setTitle(result.artist, result.title);
             Background.resetBG();
             Background.loadRedditBackground();
 

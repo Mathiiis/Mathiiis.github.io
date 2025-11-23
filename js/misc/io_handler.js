@@ -156,7 +156,7 @@ let IoHandler = new function() {
                     Background.loadVideoFile(file);
                     Background.playVideo();
                 } else if (file.type.startsWith("audio/")) {
-                    Database.loadAudioFile(file);
+                    Database.loadAudioFile(file, true);
                 }
             });
         });
