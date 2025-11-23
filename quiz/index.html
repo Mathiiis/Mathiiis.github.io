@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Cinéphile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Basculer le thème">
+        🌙 Mode sombre
+      </button>
+    </div>
+    <div class="logo-wrap">
+      <img src="assets/logo_clubcine.png" alt="Logo Club Ciné" class="logo">
+    </div>
+    <div class="title-wrap">
+      <h1>Club Ciné – Quiz</h1>
+      <p class="subtitle">Citations, images, bandes-son : testez vos réflexes de cinéphile.</p>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="quiz-card">
+      <section class="controls">
+        <button id="new-game" class="btn primary">Nouvelle partie</button>
+        <button id="submit-answers" class="btn outline">Soumettre</button>
+      </section>
+
+      <div id="quiz-container" class="quiz"></div>
+
+      <section id="results" class="results hidden">
+        <p id="score-text"></p>
+        <button id="toggle-answers" class="btn accent">Voir les réponses</button>
+      </section>
+
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
