@@ -52,6 +52,75 @@
         <link rel="stylesheet" type="text/css" href="./css/main.css">
         <link rel="stylesheet" type="text/css" href="./css/gui.css">
         <link rel="stylesheet" type="text/css" href="./css/background.css">
+        <style>
+            #quiz-qr-panel {
+                position: fixed;
+                bottom: 70px;
+                right: 20px;
+                padding: 12px 14px 10px;
+                background: rgba(0, 0, 0, 0.78);
+                color: #f3f4f6;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                border-radius: 14px;
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+                transform: translateY(12px);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 160ms ease, transform 160ms ease;
+                z-index: 9999;
+                width: 240px;
+                text-align: center;
+            }
+            #quiz-qr-panel.visible {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+            #quiz-qr {
+                width: 210px;
+                height: 210px;
+                display: block;
+                margin: 4px auto 6px;
+                border-radius: 10px;
+                background: #fff;
+            }
+            #quiz-qr-panel .qr-title {
+                font-weight: 700;
+                letter-spacing: 0.02em;
+                margin: 0 0 2px;
+                color: #facc15;
+            }
+            #quiz-qr-panel .qr-sub {
+                margin: 0;
+                font-size: 13px;
+                color: #e5e7eb;
+            }
+            #quiz-qr-close {
+                position: absolute;
+                top: 6px;
+                right: 8px;
+                cursor: pointer;
+                color: #f3f4f6;
+                font-size: 14px;
+                opacity: 0.8;
+            }
+            #quiz-qr-close:hover {
+                opacity: 1;
+            }
+            #qr-hint {
+                position: fixed;
+                bottom: 10px;
+                right: 24px;
+                color: #e5e7eb;
+                background: rgba(0, 0, 0, 0.55);
+                padding: 6px 10px;
+                border-radius: 999px;
+                font-size: 12px;
+                letter-spacing: 0.03em;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+                z-index: 9998;
+            }
+        </style>
         <!-- audio -->
         <script src="./js/audio/nodes.js"></script>
         <!-- math -->
@@ -87,6 +156,8 @@
         <script src="./js/visual/gui/gui_wrapper.js"></script>
         <!-- root -->
         <script src="./js/main.js"></script>
+        <!-- QR generation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     </head>
     <body>
         <div id="gui-full" class="overlay-container">
@@ -225,5 +296,52 @@
         <div id="now-playing" class="paused">
             <span id="now-playing-text">Aucune lecture</span>
         </div>
+
+        <div id="quiz-qr-panel">
+            <p class="qr-title">Quiz Club Ciné</p>
+            <p class="qr-sub">Scannez pour jouer</p>
+            <canvas id="quiz-qr" aria-label="QR code vers le quiz"></canvas>
+        </div>
+
+        <script>
+            (function(){
+                const panel = document.getElementById('quiz-qr-panel');
+                const qrCanvas = document.getElementById('quiz-qr');
+                const closeBtn = document.getElementById('quiz-qr-close');
+                const hint = document.getElementById('qr-hint');
+                let qrReady = false;
+
+                function ensureQr() {
+                    if (qrReady || !window.QRious || !qrCanvas) return;
+                    const url = `${location.origin}/quiz/`;
+                    new QRious({
+                        element: qrCanvas,
+                        value: url,
+                        size: 210,
+                        background: '#ffffff',
+                        foreground: '#111827',
+                        level: 'H'
+                    });
+                    qrReady = true;
+                }
+
+                function toggleQr() {
+                    if (!panel) return;
+                    const show = !panel.classList.contains('visible');
+                    if (show) ensureQr();
+                    panel.classList.toggle('visible', show);
+                }
+
+                document.addEventListener('keydown', (ev) => {
+                    if (ev.key && ev.key.toLowerCase() === 'q' && !ev.metaKey && !ev.ctrlKey && !ev.altKey) {
+                        ev.preventDefault();
+                        toggleQr();
+                    }
+                });
+
+                if (closeBtn) closeBtn.addEventListener('click', toggleQr);
+                if (hint) hint.addEventListener('click', toggleQr);
+            })();
+        </script>
     </body>
 </html>

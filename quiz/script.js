@@ -1,4 +1,4 @@
-const QUESTIONS_PER_GAME = 10;
+const QUESTIONS_PER_GAME = 1;
 
 const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
@@ -8,6 +8,9 @@ const toggleAnswersBtn = document.getElementById("toggle-answers");
 const submitBtn = document.getElementById("submit-answers");
 const newGameBtn = document.getElementById("new-game");
 const themeToggleBtn = document.getElementById("theme-toggle");
+const popupEl = document.getElementById("win-popup");
+const popupCloseBtn = document.getElementById("popup-close");
+const confettiContainer = document.getElementById("confetti-container");
 
 const THEME_KEY = "clubcine-theme";
 
@@ -164,6 +167,10 @@ function handleSubmit() {
   scoreText.textContent = `Score : ${score} / ${currentQuestions.length}`;
   setFeedback("Réponses soumises. Cliquez sur « Voir les réponses » pour afficher les bonnes.");
   gameLocked = true;
+  if (score === currentQuestions.length) {
+    showWinPopup();
+    fireEmojiConfetti();
+  }
 }
 
 function toggleAnswers() {
@@ -230,5 +237,65 @@ submitBtn.addEventListener("click", handleSubmit);
 toggleAnswersBtn.addEventListener("click", toggleAnswers);
 newGameBtn.addEventListener("click", startNewGame);
 
+if (popupCloseBtn) {
+  popupCloseBtn.addEventListener("click", hideWinPopup);
+}
+
+if (popupEl) {
+  popupEl.addEventListener("click", (event) => {
+    if (event.target === popupEl) hideWinPopup();
+  });
+}
+
 initTheme();
 loadQuestions();
+
+function showWinPopup() {
+  if (!popupEl) return;
+  const stampEl = document.getElementById("popup-timestamp");
+  if (stampEl) {
+    const now = new Date();
+    stampEl.textContent = `Date et heure : ${now.toLocaleString("fr-FR", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    })}`;
+  }
+  popupEl.classList.remove("hidden");
+}
+
+function hideWinPopup() {
+  if (!popupEl) return;
+  popupEl.classList.add("hidden");
+}
+
+function fireEmojiConfetti() {
+  if (!confettiContainer) return;
+  const emojis = ["🍿", "✨", "🎬", "⭐", "🍿", "✨"];
+  const amount = 28;
+  for (let i = 0; i < amount; i += 1) {
+    const span = document.createElement("span");
+    span.className = "confetti";
+    span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    const startX = Math.random() * 100;
+    const startY = Math.random() * 15; // lancer depuis le haut
+    const drift = (Math.random() - 0.5) * 240;
+    const spin = 540 + Math.random() * 540; // 540 à 1080 deg
+    const duration = 1.3 + Math.random() * 0.9; // 1.3s à 2.2s
+    const size = 22 + Math.random() * 12;
+
+    span.style.left = `${startX}vw`;
+    span.style.top = `${startY}vh`;
+    span.style.fontSize = `${size}px`;
+    span.style.setProperty("--drift", `${drift}px`);
+    span.style.setProperty("--spin", `${spin}deg`);
+    span.style.setProperty("--duration", `${duration}s`);
+
+    confettiContainer.appendChild(span);
+    setTimeout(() => span.remove(), duration * 1000 + 200);
+  }
+}

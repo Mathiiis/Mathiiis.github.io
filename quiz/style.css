@@ -324,6 +324,100 @@ body.theme-dark .choice.correct {
   min-height: 20px;
 }
 
+.popup {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  padding: 16px;
+  animation: fadeIn 200ms ease;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-card {
+  max-width: 480px;
+  width: min(90vw, 480px);
+  background: var(--color-card);
+  color: var(--text-strong);
+  border-radius: 20px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--border);
+  text-align: center;
+  padding: 28px 24px 22px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.popup-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-2) 70%);
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.popup-emoji {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.popup-card h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  color: var(--color-primary);
+}
+
+.popup-card p {
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.popup-meta {
+  font-size: 14px;
+  color: var(--color-primary-dark);
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.popup-card .btn.primary {
+  min-width: 130px;
+}
+
+#confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 60;
+}
+
+.confetti {
+  position: absolute;
+  font-size: 26px;
+  animation: fall var(--duration, 1.6s) ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fall {
+  0% { transform: translate3d(0, -20vh, 0) rotate(0deg); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate3d(var(--drift, 0px), 120vh, 0) rotate(var(--spin, 960deg)); opacity: 0; }
+}
+
 @media (max-width: 640px) {
   body {
     padding: 0 10px 26px;

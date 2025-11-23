@@ -552,7 +552,7 @@
   {
     "type": "text",
     "question": "Quel film raconte l’histoire d’un homme qui vieillit à l’envers ?",
-    "answer": "L’Étrange histoire de Benjamin Button",
+    "answer": "Benjamin Button",
     "choices": ["Benjamin Button", "Forrest Gump", "Mr Nobody", "Her"]
   },
 
@@ -573,14 +573,14 @@
   {
     "type": "text",
     "question": "Dans quel film rencontre-t-on Thanos ?",
-    "answer": "Avengers : Infinity War",
+    "answer": "Infinity War",
     "choices": ["Infinity War", "Endgame", "Age of Ultron", "Guardians of the Galaxy"]
   },
 
   {
     "type": "text",
     "question": "Quel film français est connu pour la réplique : « C’est pas faux » ?",
-    "answer": "Kaamelott – Premier Volet",
+    "answer": "Kaamelott",
     "choices": ["Kaamelott", "Les Visiteurs", "OSS 117", "Le Père Noël est une ordure"]
   },
 
