@@ -31,6 +31,7 @@ let Database = new function () {
 
     let order;
     let index;
+    const getShuffleState = () => Util.getCookie("shuffle") === "true";
 
     this.setUp = function () {
         elmFile = document.getElementById("fileSelector")
@@ -50,6 +51,10 @@ let Database = new function () {
         elmAdd.addEventListener("click", addSong, false);
         elmView.addEventListener("click", handleRefresh, false);
         elmDeldb.addEventListener("click", handleDeleteDB, false);
+        const shuffleBtn = document.getElementById("shuffle");
+        if (shuffleBtn) {
+            shuffleBtn.addEventListener("click", () => Database.toggleShuffle());
+        }
 
         dbTemplate = $.templates("#table-row-template");
 
@@ -80,17 +85,16 @@ let Database = new function () {
     }
 
     this.toggleShuffle = function () {
-        let shuffle = true;
-        if (Util.getCookie("shuffle") !== undefined) {
-            shuffle = Util.getCookie("shuffle") == "false";
-        }
-        Util.setCookie("shuffle", shuffle);
-
-        applyShuffle();
+        const next = !getShuffleState();
+        Util.setCookie("shuffle", next);
+        applyShuffle(next);
     }
 
-    let applyShuffle = function () {
-        let shuffle = Util.getCookie("shuffle") == "true";
+    let applyShuffle = function (forcedState) {
+        const shuffle = typeof forcedState === "boolean" ? forcedState : getShuffleState();
+        $("#shuffle").toggleClass("on", shuffle);
+        // Sécurise le cas où la base n'est pas encore chargée
+        if (totalCount === undefined || totalCount === 0) return;
 
         if (index === undefined) {
             index = Math.floor(Math.random() * totalCount);

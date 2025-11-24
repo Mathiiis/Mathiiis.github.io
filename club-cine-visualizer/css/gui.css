@@ -135,6 +135,11 @@ a {
     background: rgba(255, 255, 255, 0.15);
 }
 
+#audio-player #shuffle.on {
+    color: #3498DB !important;
+    background: rgba(52, 152, 219, 0.18);
+}
+
 #audio-player .main-controls {
     gap: 10px;
     display: flex;

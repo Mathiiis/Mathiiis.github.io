@@ -9,12 +9,28 @@ let IoHandler = new function() {
     const KEY_ARROW_DOWN = 40;
     const KEY_F_UPPER = 70;
     const KEY_G_UPPER = 71;
+    const KEY_L_UPPER = 76;
+    const KEY_P_UPPER = 80;
+    const KEY_S_UPPER = 83;
     const KEY_F_LOWER = 102;
     const KEY_G_LOWER = 103;
+    const KEY_L_LOWER = 108; // code correct pour "l"
+    const KEY_P_LOWER = 112; // code correct pour "p"
+    const KEY_S_LOWER = 115; // code correct pour "s"
 
     let dragging = Array();
     let dragElements = Array();
     let dragCallbacks = Array();
+
+    const isKeyL = event => {
+        const key = (event.key || "").toLowerCase();
+        return key === "l" || event.which === KEY_L_UPPER || event.which === KEY_L_LOWER;
+    };
+
+    const isKeyP = event => {
+        const key = (event.key || "").toLowerCase();
+        return key === "p" || event.which === KEY_P_UPPER || event.which === KEY_P_LOWER;
+    };
 
     this.setUp = function() {
         $("#db-view").on("click", ".row-title", function() {
@@ -57,11 +73,34 @@ let IoHandler = new function() {
 
                         break;
                     }
+                    default: {
+                        if (isKeyL(event)) {
+                            GuiWrapper.openGui(); // Library / playlist
+                            event.preventDefault();
+                        } else if (isKeyP(event)) {
+                            GuiWrapper.toggleOverlay(); // Player overlay (comme now-playing)
+                            event.preventDefault();
+                        }
+                    }
                 }
             }
         });
 
         $(document).keydown(event => {
+            // Library sur L/l, player sur P/p
+            if (!event.metaKey && !event.ctrlKey && !event.altKey) {
+                if (isKeyL(event)) {
+                    GuiWrapper.openGui();
+                    event.preventDefault();
+                    return;
+                }
+                if (isKeyP(event)) {
+                    GuiWrapper.toggleOverlay();
+                    event.preventDefault();
+                    return;
+                }
+            }
+
             switch (event.which) {
                 case KEY_ESC: {
                     if (GuiWrapper.keepGui) {
@@ -80,12 +119,18 @@ let IoHandler = new function() {
                     break;
                 }
                 case KEY_ARROW_LEFT: {
-                    AudioWrap.setProgressSeconds(AudioWrap.getProgressSeconds() - 5);
+                    Database.playPrevSong();
 
                     break;
                 }
                 case KEY_ARROW_RIGHT: {
-                    AudioWrap.setProgressSeconds(AudioWrap.getProgressSeconds() + 5);
+                    Database.playNextSong();
+
+                    break;
+                }
+                case KEY_S_UPPER:
+                case KEY_S_LOWER: {
+                    Database.toggleShuffle();
 
                     break;
                 }

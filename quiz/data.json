@@ -32,15 +32,15 @@
 
   {
     "type": "image",
-    "question": "De quel film cette affiche provient-elle ?",
-    "image": "assets/images/jaws.jpg",
+    "question": "De quel film cette image provient-elle ?",
+    "image": "assets/images/jaws.webp",
     "answer": "Les Dents de la Mer",
     "choices": ["Les Dents de la Mer", "Jurassic Park", "Alien", "King Kong"]
   },
   {
     "type": "image",
     "question": "Quel film est représenté par ce plan iconique ?",
-    "image": "assets/images/pulpfiction.jpg",
+    "image": "assets/images/pulpfiction.jpeg",
     "answer": "Pulp Fiction",
     "choices": ["Pulp Fiction", "Reservoir Dogs", "Fight Club", "Snatch"]
   },
@@ -216,7 +216,7 @@
   {
     "type": "text",
     "question": "Dans quel film la phrase « Pourquoi tu cours ? » est-elle culte ?",
-    "answer": "OSS 117 : Alerte rouge",
+    "answer": "OSS 117",
     "choices": ["OSS 117", "La Haine", "Le Dîner de Cons", "Intouchables"]
   },
 

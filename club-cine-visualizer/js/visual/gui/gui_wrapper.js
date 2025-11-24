@@ -48,6 +48,10 @@ let GuiWrapper = new function() {
         }
     }
 
+    this.toggleOverlay = function() {
+        toggleOverlay();
+    }
+
     this.openGui = function() {
         if (this.aboutOpen) {
             this.closeAbout();
