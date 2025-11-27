@@ -481,13 +481,6 @@
 
   {
     "type": "text",
-    "question": "Quel film a popularisé la pilule rouge et la pilule bleue ?",
-    "answer": "Matrix",
-    "choices": ["Matrix", "Inception", "Equilibrium", "Tron"]
-  },
-
-  {
-    "type": "text",
     "question": "Dans quel film un assassin suit un principe de karma inversé ?",
     "answer": "John Wick",
     "choices": ["John Wick", "Taken", "Equalizer", "Nobody"]

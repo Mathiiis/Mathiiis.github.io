@@ -143,6 +143,10 @@ body {
   margin-bottom: 18px;
 }
 
+.submit-actions {
+  margin-top: 12px;
+}
+
 .btn {
   border: none;
   cursor: pointer;

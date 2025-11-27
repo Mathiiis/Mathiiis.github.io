@@ -1,4 +1,4 @@
-const QUESTIONS_PER_GAME = 10;
+const QUESTIONS_PER_GAME = 1;
 
 const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
@@ -20,6 +20,19 @@ let selections = {};
 let revealAnswers = false;
 let gameLocked = false;
 
+function setSubmitMode(mode) {
+  if (!submitBtn) return;
+  if (mode === "restart") {
+    submitBtn.textContent = "Nouvelle partie";
+    submitBtn.dataset.mode = "restart";
+    if (newGameBtn) newGameBtn.classList.add("hidden");
+  } else {
+    submitBtn.textContent = "Soumettre";
+    submitBtn.dataset.mode = "submit";
+    if (newGameBtn) newGameBtn.classList.remove("hidden");
+  }
+}
+
 async function loadQuestions() {
   setFeedback("Chargement des questions...");
   try {
@@ -38,6 +51,7 @@ async function loadQuestions() {
 
 function startNewGame() {
   if (!allQuestions.length) return;
+  setSubmitMode("submit");
   currentQuestions = pickRandomQuestions(allQuestions, QUESTIONS_PER_GAME);
   selections = {};
   revealAnswers = false;
@@ -171,6 +185,17 @@ function handleSubmit() {
     showWinPopup();
     fireEmojiConfetti();
   }
+
+  setSubmitMode("restart");
+}
+
+function handleSubmitClick() {
+  const mode = submitBtn?.dataset.mode || "submit";
+  if (mode === "restart") {
+    startNewGame();
+    return;
+  }
+  handleSubmit();
 }
 
 function toggleAnswers() {
@@ -233,9 +258,11 @@ if (themeToggleBtn) {
   });
 }
 
-submitBtn.addEventListener("click", handleSubmit);
+submitBtn.addEventListener("click", handleSubmitClick);
 toggleAnswersBtn.addEventListener("click", toggleAnswers);
-newGameBtn.addEventListener("click", startNewGame);
+if (newGameBtn) {
+  newGameBtn.addEventListener("click", startNewGame);
+}
 
 if (popupCloseBtn) {
   popupCloseBtn.addEventListener("click", hideWinPopup);
