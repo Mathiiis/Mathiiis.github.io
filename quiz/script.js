@@ -1,4 +1,4 @@
-const QUESTIONS_PER_GAME = 1;
+const QUESTIONS_PER_GAME = 10;
 
 const quizContainer = document.getElementById("quiz-container");
 const feedbackEl = document.getElementById("feedback");
