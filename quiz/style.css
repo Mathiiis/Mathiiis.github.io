@@ -9,6 +9,7 @@
   --color-card-soft: #EFEDD4;
   --color-text: #222222;
   --text-strong: #B72820;
+  --color-selected: #1E7AEF;
   --radius: 16px;
   --shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   --border: rgba(0, 0, 0, 0.08);
@@ -26,6 +27,7 @@ body.theme-dark {
   --color-card-soft: #342021;
   --color-text: #F7F3E9;
   --text-strong: #F7E0D6;
+  --color-selected: #4D9BFF;
   --shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   --border: rgba(255, 255, 255, 0.08);
   --success: #9bd79f;
@@ -51,16 +53,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 16px 32px;
+  padding: 0 0 32px;
   transition: background 200ms ease, color 200ms ease;
 }
 
 .site-header {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  padding: 32px 0 28px;
   text-align: center;
-  padding: 32px 16px 28px;
   background: linear-gradient(135deg, #2A1B1C 0%, #B72820 60%, #C9392E 100%);
   color: var(--header-text);
   border-bottom-left-radius: 18px;
@@ -122,6 +123,7 @@ body {
   max-width: 900px;
   display: flex;
   justify-content: center;
+  padding: 0 16px;
 }
 
 .quiz-card {
@@ -282,9 +284,9 @@ body.theme-dark .badge {
 }
 
 .choice.selected {
-  border-color: var(--color-primary);
-  background: rgba(201, 57, 46, 0.12);
-  color: var(--text-strong);
+  border-color: var(--color-selected);
+  background: rgba(30, 122, 239, 0.12);
+  color: #0f3c80;
 }
 
 .choice.correct {
@@ -301,6 +303,11 @@ body.theme-dark .badge {
 
 body.theme-dark .choice.correct {
   color: #142c12;
+}
+
+body.theme-dark .choice.selected {
+  background: rgba(77, 155, 255, 0.18);
+  color: #dbe7ff;
 }
 
 .results {
@@ -424,7 +431,11 @@ body.theme-dark .choice.correct {
 
 @media (max-width: 640px) {
   body {
-    padding: 0 10px 26px;
+    padding: 0 0 26px;
+  }
+
+  .page {
+    padding: 0 10px;
   }
 
   .quiz-card {
