@@ -404,13 +404,6 @@
 
   {
     "type": "text",
-    "question": "Quel film raconte la formation d’un groupe de musique métal en école militaire ?",
-    "answer": "Whiplash",
-    "choices": ["Whiplash", "Bohemian Rhapsody", "La La Land", "Birdman"]
-  },
-
-  {
-    "type": "text",
     "question": "Dans quel film un jouet cowboy et un astronaute deviennent amis ?",
     "answer": "Toy Story",
     "choices": ["Toy Story", "Wall-E", "Monstres & Cie", "Les Indestructibles"]
@@ -596,5 +589,235 @@
     "question": "Dans quel film Hugh Jackman incarne un magicien rival de Christian Bale ?",
     "answer": "Le Prestige",
     "choices": ["Le Prestige", "The Illusionist", "Inception", "Now You See Me"]
+  },
+  {
+    "type":"text",
+    "question": "Dans quel film, le personnage de James Bond est-il interprété par l’acteur George Lazenby ?",
+    "answer": "Au service secret de Sa Majesté",
+    "choices":["Au service secret de Sa Majesté","Les diamants sont éternels","Opération Tonnerre","On ne vit que deux fois"]
+  },
+  {
+    "type":"text",
+    "question":"Quel compositeur de musique est associé à presque toutes les productions du réalisateur Tim Burton ?",
+    "answer": "Danny Elfman",
+    "choices": ["Hans Zimmer","Ennio Morricone","Danny Elfman","James Horner"]
+  },
+  {
+    "type":"image",
+    "question":"Quel est le nom de ce personnage d’un film de Hayao Miyazaki ?",
+    "image": "assets/images/Miyazaki.jpg",
+    "answer":"Totoro",
+    "choices":["Ponyo","Kiki","Totoro","Mononoké"]
+  },
+  {
+    "type":"image",
+    "question":"Quel film est associé à cette affiche ?",
+    "image":"assets/images/orange.jpg",
+    "answer": "Orange mécanique",
+    "choices": ["Shining","Eyes Wide Shut","Orange mécanique","2001, l'Odyssée de l'espace"]
+  },
+  {
+    "type":"text",
+    "question":"En quelle année est sorti au cinéma le premier volet de Star Wars sous le nom La Guerre des Étoiles ?",
+    "answer":"1977",
+    "choices":["1975","1977","1979","1981"]
+  },
+  {
+    "type":"text",
+    "question":"Comment s’appelle le premier film des frères Lumière en 1895 ?",
+    "answer": "La Sortie de l'usine Lumière",
+    "choices": ["L'arroseur arrosé","Barque sortant du port","L'arrivée d'un train à la Ciotat","La Sortie de l'usine Lumière"]
+  },
+  {
+    "type":"text",
+    "question":"Qui est le réalisateur du film français Un p’tit truc en plus sorti en 2024 ?",
+    "answer":"Artus",
+    "choices":["Jérémy Ferrari","Jonathan Lambert","Artus","Jarry"]
+  },
+  {
+    "type":"text",
+    "question":"Dans quel pays se déroule une partie de l'intrigue du film Kill Bill : volume 1 ?",
+    "answer":"Japon",
+    "choices":["Allemagne", "Italie", "Japon", "Russie"]
+  },
+  {
+    "type":"text",
+    "question":"Quel film a terminé en tête du box-office en France en 2019 avec plus de 10 millions d’entrées ?",
+    "answer":"Le Roi Lion",
+    "choices":["Le Roi Lion", "Star Wars VIII", "Tenet", "Pirates des Caraïbes : La Vengeance de Salazar"]
+  },
+  {
+    "type":"text",
+    "question":"Quel super-héros était de retour au cinéma en 2023 dans un film d’animation ?",
+    "answer":"Spider-Man",
+    "choices":["Batman","Spider-Man","Superman","Hulk"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/leparrain.mp3",
+    "answer":"Le Parrain",
+    "choises":["Le Bon, la Butte et le Truant", "Le Parrain", "Les Affranchis","Casino"]
+  },
+  {
+    "type":"text",
+    "question":"Dans combien de James Bond Daniel Craig a-t-il joué ?",
+    "answer":"5",
+    "choices":["5","6","7","8"]
+  },
+  {
+    "type":"text",
+    "question":"Qui a réalisé le très célèbre Robocop de 1987",
+    "answer":"Paul Verhoeven",
+    "choices":["Steven Spielberg","James Cameron","Paul Verhoeven","José Padilha"]
+  },
+  {
+    "type":"text",
+    "question":"Lequel de ces films de Spielberg est le plus ancien",
+    "answer":"Duel",
+    "choices":["Jurassic Park","Les Dents de la Mer","Duel","Ready Player One"]
+  },
+  {
+    "type":"text",
+    "question":"Combien de films de l'univers Marvel MCU existe-t-il à ce jour ?",
+    "answer":"37",
+    "choices":["29","37","41","48"]
+  },
+  {
+    "type":"text",
+    "question":"Qui incarne Katniss Everdeen ?",
+    "answer":"Jennifer Lawrence",
+    "choices":["Emma Watson","Emma Stone","Sidney Sweeney","Jennifer Lawrence"]
+  },
+  {
+    "type":"text",
+    "question":"Quel acteur français incarne le compte de Monte-Christo",
+    "answer":"Pierre Niney",
+    "choices":["Vincent Lacoste","François Civil","Pierre Niney","Xavier Dolan"]
+  },
+  {
+    "type":"text",
+    "question":"Lequel de ces films n'est pas de Stanley Kubrick",
+    "answer":"La ligne rouge",
+    "choices":["Lolita","Orange Mécanique","2001 L'odyssée de l'espace","La ligne rouge"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Avatar.mp3",
+    "answer":"Avatar",
+    "choices":["Gladiator","Pacific Rim","Hunger Games","Avatar"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Gladiator.mp3",
+    "answer":"Gladiator",
+    "choices":["Gladiator","Avatar","Hunger Games","300"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/HP.mp3",
+    "answer":"Harry Potter",
+    "choices":["Les Animaux fantastiques","Harry Potter","Le Hobbit","Le Seigneur des Anneaux"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/intouchable.mp3",
+    "answer":"Intouchable",
+    "choices":["Bienvenue chez les Ch'tis","Les incorruptibles","Intouchable","Camping"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Jaws.mp3",
+    "answer":"Les Dents de la Mer",
+    "choices":["Les Dents de la Mer","Jurassic Park","Halloween","La Cité de la peur"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/LeSeigneur.mp3",
+    "answer":"Le Seigneur des Anneaux",
+    "choices":["Les Animaux fantastiques","Harry Potter","Le Hobbit","Le Seigneur des Anneaux"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Pirates.mp3",
+    "answer":"Pirates des Caraïbes",
+    "choices":["Titanic","Captain America","Pirates des Caraïbes","Indiana Jones"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Rocky.mp3",
+    "answer":"Rocky III",
+    "choices":["Rocky","Rocky II","Rocky III","Creed"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Time.mp3",
+    "answer":"Inception",
+    "choices":["Inception","Tenet","Gravity","Interstellar"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/ValseAmelie.mp3",
+    "answer":"Le Fabuleux Destin d'Amélie Poulain",
+    "choices":["Midnight in Paris","La Belle Époque","La Haine","Le Fabuleux Destin d'Amélie Poulain"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/007.mp3",
+    "answer":"James Bond",
+    "choices":["Kingsman","Mission Impossible","James Bond","OSS 117"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Apocalypse.mp3",
+    "answer":"Apocalypse now",
+    "choices":["Apocalypse now","Full Metal Jacket","Orange Mécanique","Voyage au bout de l'enfer"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Dune.mp3",
+    "answer":"Dune",
+    "choices":["Dune","Avatar","Mad Max : Fury Road","Seul sur Mars"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/MadMax.mp3",
+    "answer":"Mad Max: Fury Road",
+    "choices":["Blade Runner 2049","Avatar","Edge of Tomorrow","Mad Max: Fury Road"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/Mission.mp3",
+    "answer":"Mission Impossible",
+    "choices":["Blade Runner 2049","Mission Impossible","James Bond","Kingsman"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/ocean.mp3",
+    "answer":"Ocean 12",
+    "choices":["Ocean's Eleven","Ocean's Twelve","The Dictator","La Tour Montparnasse infernale"]
+  },
+  {
+    "type":"audio",
+    "question":"De quel film provient cette musique ?",
+    "audio":"assets/audio/rat.mp3",
+    "answer":"Ocean 12",
+    "choices":["Monstres Academy","Zootopie","Ratatouille","Les Indestructibles"]
   }
 ]

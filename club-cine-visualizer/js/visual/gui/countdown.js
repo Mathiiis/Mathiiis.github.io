@@ -3,6 +3,7 @@ let Countdown = new function() {
     const STORAGE_DURATION = "countdownDurationMs";
     const STORAGE_TARGET = "countdownTarget";
     const DEFAULT_MS = 5 * 60 * 1000; // 5 minutes
+    const LABEL_PREFIX = "Début de la projection dans : ";
 
     let el;
     let durationMs = DEFAULT_MS;
@@ -70,7 +71,8 @@ let Countdown = new function() {
         if (!el) {
             return;
         }
-        el.innerText = str || formatMs(Math.max(0, targetTime - Date.now()));
+        let display = str || formatMs(Math.max(0, targetTime - Date.now()));
+        el.innerText = LABEL_PREFIX + display;
     }
 
     let resetTarget = function() {
