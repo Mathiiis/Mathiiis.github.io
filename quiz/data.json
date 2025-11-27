@@ -61,7 +61,7 @@
   },
   {
     "type": "audio",
-    "question": "Quel film s’ouvre sur cette célèbre fanfare ?",
+    "question": "Cette musique iconique est issue de :",
     "audio": "assets/audio/starwars.mp3",
     "answer": "Star Wars",
     "choices": ["Star Wars", "Star Trek", "Avatar", "Blade Runner"]
@@ -183,13 +183,6 @@
     "question": "Quel film met en scène un rêve dans un rêve ?",
     "answer": "Inception",
     "choices": ["Inception", "Interstellar", "Shutter Island", "Matrix"]
-  },
-
-  {
-    "type": "text",
-    "question": "Quel film est surnommé 'le Parrain de l’animation japonaise' ?",
-    "answer": "Princesse Mononoké",
-    "choices": ["Princesse Mononoké", "Le Voyage de Chihiro", "Your Name", "Akira"]
   },
 
   {
@@ -344,13 +337,6 @@
     "question": "Quel film oppose Batman et le Joker dans une ambiance sombre et réaliste ?",
     "answer": "The Dark Knight",
     "choices": ["The Dark Knight", "Batman Begins", "The Batman", "Justice League"]
-  },
-
-  {
-    "type": "text",
-    "question": "Quel film raconte la bataille de Dunkerque ?",
-    "answer": "Dunkerque",
-    "choices": ["Dunkerque", "1917", "Il faut sauver le soldat Ryan", "Midway"]
   },
 
   {
